@@ -6,7 +6,7 @@ public class RotateCamera : MonoBehaviour
 {
     private Rigidbody playerRb;
     private GameObject focalPoint;
-    public float speed = 5.0f;
+    public float rotationSpeed = 5.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,7 @@ public class RotateCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float forwardInput = Input.GetAxis("Vertical");
-        playerRb.AddForce(focalPoint.transform.forward * speed * forwardInput);
+        float horizontalInput = Input.GetAxis("Horizontal");
+        transform.Rotate(Vector3.up, horizontalInput * rotationSpeed * Time.deltaTime);
     }
 }
